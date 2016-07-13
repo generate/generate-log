@@ -1,0 +1,96 @@
+{
+  "name": "generate-changelog",
+  "description": "Generate a CHANGELOG.md file, using defaults from keep-a-changelog.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/generate-changelog",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/generate-changelog",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/generate-changelog/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "generator.js",
+    "index.js",
+    "LICENSE",
+    "templates"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "helper-date": "^0.2.2",
+    "is-valid-app": "^0.2.0"
+  },
+  "keywords": [
+    "boilerplate",
+    "build",
+    "changelog",
+    "cli",
+    "cli-app",
+    "command-line",
+    "create",
+    "dev",
+    "development",
+    "framework",
+    "front",
+    "frontend",
+    "generate",
+    "generate-generator",
+    "generate-plugin",
+    "generategenerator",
+    "generateplugin",
+    "generator",
+    "init",
+    "initialize",
+    "new",
+    "plugin",
+    "project",
+    "projects",
+    "scaffold",
+    "scaffolder",
+    "scaffolding",
+    "template",
+    "templates",
+    "webapp",
+    "yeoman",
+    "yo"
+  ],
+  "verb": {
+    "reflinks": [
+      "assemble",
+      "base",
+      "generate",
+      "generate-dest",
+      "generate-install",
+      "gulp",
+      "verb-generate-readme",
+      "verb"
+    ],
+    "related": {
+      "list": []
+    },
+    "toc": false,
+    "layout": "generator",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "lint": {
+      "reflinks": true
+    }
+  },
+  "devDependencies": {
+    "delete": "^0.3.2",
+    "generate": "^0.9.0",
+    "gulp-format-md": "^0.1.9",
+    "mocha": "^2.5.3",
+    "npm-install-global": "^0.1.2"
+  }
+}
