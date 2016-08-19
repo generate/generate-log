@@ -6,7 +6,7 @@ var generate = require('generate');
 var generator = require('..');
 var app;
 
-describe('generate-changelog', function() {
+describe('generate-log', function() {
   beforeEach(function() {
     app = generate();
   });
@@ -21,7 +21,7 @@ describe('generate-changelog', function() {
     it('should only register the plugin once', function(cb) {
       var count = 0;
       app.on('plugin', function(name) {
-        if (name === 'generate-changelog') {
+        if (name === 'generate-log') {
           count++;
         }
       });

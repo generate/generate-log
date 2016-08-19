@@ -2,8 +2,8 @@
 
 var isValid = require('is-valid-app');
 
-module.exports = function(app) {
-  if (!isValid(app, 'generate-changelog')) return;
+module.exports = function fn(app) {
+  if (!isValid(app, 'generate-log')) return;
 
   /**
    * Plugins
@@ -12,39 +12,22 @@ module.exports = function(app) {
   app.use(require('generate-defaults'));
 
   /**
-   * Template helpers
-   */
-
-  app.helper('date', require('helper-date'));
-
-  /**
-   * Alias for the [changelog](#changelog) task, to allow running this generator
-   * with the following command:
+   * Generate a `changelog.md` file. For API usage this task is also aliased as `changelog`.
    *
    * ```sh
-   * $ gen changelog
+   * $ gen generator:log
    * ```
-   * @name default
+   * @name log
    * @api public
    */
 
   app.task('default', ['changelog']);
-
-  /**
-   * Generate a `changelog.md` file.
-   *
-   * ```sh
-   * $ gen generator:changelog
-   * ```
-   * @name changelog
-   * @api public
-   */
-
   app.task('changelog', function() {
-    var dest = app.options.dest || app.cwd;
-    return app.src('templates/changelog.md', {cwd: __dirname})
+    app.helper('date', require('helper-date'));
+
+    return app.src('templates/CHANGELOG.md', {cwd: __dirname})
       .pipe(app.renderFile('*')).on('error', console.log)
-      .pipe(app.conflicts(dest)).on('error', console.log)
-      .pipe(app.dest(dest));
+      .pipe(app.conflicts(app.cwd))
+      .pipe(app.dest(app.cwd));
   });
 };

@@ -1,4 +1,6 @@
-#### key
+# Changelog
+
+## key
 
 Changelog entries are classified using the following labels _(from [keep-a-changelog][]_):
 
@@ -8,7 +10,7 @@ Changelog entries are classified using the following labels _(from [keep-a-chang
 - `removed`: for deprecated features removed in this release
 - `fixed`: for any bug fixes
 
-#### Unreleased
+## Unreleased
 
 This is an example section. Update this with actual history.
 
@@ -20,10 +22,10 @@ This is an example section. Update this with actual history.
 
 - Description of something that was added.
 
-#### [0.1.0] - <%= date("YYYY-MM-DD") %>
+## [0.1.0] - <%= date("YYYY-MM-DD") %>
 
 First commit.
 
-[Unreleased]: https://github.com/<%= owner %>/<%= name %>/compare/0.1.0...HEAD
+[Unreleased]: https://github.com/<%= ask("owner") %>/<%= ask("name") %>/compare/0.1.0...HEAD
 [keep-a-changelog]: https://github.com/olivierlacan/keep-a-changelog
 

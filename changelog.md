@@ -24,6 +24,6 @@ This is an example section. Update this with actual history.
 
 First commit.
 
-[Unreleased]: https://github.com/jonschlinkert/generate-changelog/compare/0.1.0...HEAD
+[Unreleased]: https://github.com/jonschlinkert/generate-log/compare/0.1.0...HEAD
 [keep-a-changelog]: https://github.com/olivierlacan/keep-a-changelog
 

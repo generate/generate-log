@@ -5,11 +5,13 @@ var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
 var generate = require('generate');
+var merge = require('mixin-deep');
 var npm = require('npm-install-global');
 var del = require('delete');
 var generator = require('..');
 var app;
 
+var isTravis = process.env.CI || process.env.TRAVIS;
 var fixtures = path.resolve.bind(path, __dirname, '../templates');
 var actual = path.resolve.bind(path, __dirname, 'actual');
 
@@ -26,10 +28,10 @@ function exists(name, cb) {
   };
 }
 
-describe('generate-changelog', function() {
+describe('generate-log', function() {
   this.slow(250);
 
-  if (!process.env.CI && !process.env.TRAVIS) {
+  if (isTravis) {
     before(function(cb) {
       npm.maybeInstall('generate', cb);
     });
@@ -52,7 +54,7 @@ describe('generate-changelog', function() {
     it('should only register the plugin once', function(cb) {
       var count = 0;
       app.on('plugin', function(name) {
-        if (name === 'generate-changelog') {
+        if (name === 'generate-log') {
           count++;
         }
       });
@@ -69,7 +71,7 @@ describe('generate-changelog', function() {
       assert(app.tasks.hasOwnProperty('changelog'));
     });
 
-    it.only('should run the `default` task with .build', function(cb) {
+    it('should run the `default` task with .build', function(cb) {
       app.use(generator);
       app.build('default', exists(fixtures('changelog.md'), cb));
     });
@@ -80,19 +82,19 @@ describe('generate-changelog', function() {
     });
   });
 
-  if (!process.env.CI && !process.env.TRAVIS) {
-    describe('generator (CLI)', function() {
-      it('should run the default task using the `generate-changelog` name', function(cb) {
-        app.use(generator);
-        app.generate('generate-changelog', exists(fixtures('changelog.md'), cb));
-      });
-
-      it('should run the default task using the `generator` generator alias', function(cb) {
-        app.use(generator);
-        app.generate('changelog', exists(fixtures('changelog.md'), cb));
-      });
+  describe('generator (CLI)', function() {
+    it('should run the default task using the `generate-log` name', function(cb) {
+      if (isTravis) return this.skip();
+      app.use(generator);
+      app.generate('generate-log', exists(fixtures('changelog.md'), cb));
     });
-  }
+
+    it('should run the default task using the `generator` generator alias', function(cb) {
+      if (isTravis) return this.skip();
+      app.use(generator);
+      app.generate('changelog', exists(fixtures('changelog.md'), cb));
+    });
+  });
 
   describe('generator (API)', function() {
     it('should run the default task on the generator', function(cb) {
@@ -116,14 +118,14 @@ describe('generate-changelog', function() {
       app.register('foo', function(foo) {
         foo.register('changelog', generator);
       });
-      app.generate('foo.generator', exists(fixtures('changelog.md'), cb));
+      app.generate('foo.changelog', exists(fixtures('changelog.md'), cb));
     });
 
     it('should run the `default` task by default', function(cb) {
       app.register('foo', function(foo) {
         foo.register('changelog', generator);
       });
-      app.generate('foo.generator', exists(fixtures('changelog.md'), cb));
+      app.generate('foo.changelog', exists(fixtures('changelog.md'), cb));
     });
 
     it('should run the `changelog:default` task when defined explicitly', function(cb) {
