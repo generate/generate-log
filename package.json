@@ -1,7 +1,7 @@
 {
   "name": "generate-log",
   "description": "Generate a starter CHANGELOG.md file, using conventions from keep-a-changelog. Use from the command line when Generate's CLI is installed globally, or use as a plugin or sub-generator in your own generator.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/generate/generate-log",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "generate/generate-log",
