@@ -31,7 +31,7 @@ function exists(name, cb) {
 describe('generate-log', function() {
   this.slow(250);
 
-  if (isTravis) {
+  if (!isTravis) {
     before(function(cb) {
       npm.maybeInstall('generate', cb);
     });
