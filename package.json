@@ -4,6 +4,10 @@
   "version": "0.1.1",
   "homepage": "https://github.com/generate/generate-log",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "contributors": [{
+    "name": "Hien Dao vinh",
+    "email": "neo.go.vn@gmail.com"
+  }],
   "repository": "generate/generate-log",
   "bugs": {
     "url": "https://github.com/generate/generate-log/issues"
