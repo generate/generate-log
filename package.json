@@ -4,10 +4,9 @@
   "version": "0.1.2",
   "homepage": "https://github.com/generate/generate-log",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
-  "contributors": [{
-    "name": "Hien Dao vinh",
-    "email": "neo.go.vn@gmail.com"
-  }],
+  "contributors": [
+    "Hien Dao vinh <neo.go.vn@gmail.com>"
+  ],
   "repository": "generate/generate-log",
   "bugs": {
     "url": "https://github.com/generate/generate-log/issues"
@@ -86,8 +85,8 @@
     ],
     "related": {
       "list": [
-        "generate-license",
         "generate-gitignore",
+        "generate-license",
         "generate-project"
       ]
     },
