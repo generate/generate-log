@@ -14,11 +14,11 @@ Changelog entries are classified using the following labels _(from [keep-a-chang
 
 This is an example section. Update this with actual history.
 
-**Changed**
+### Changed
 
 - Description of something that was changed.
 
-**Added**
+### Added
 
 - Description of something that was added.
 
